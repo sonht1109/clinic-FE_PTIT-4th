@@ -10,8 +10,6 @@ import useInjectReducer from 'redux/useInjectReducer';
 import reducersDashboard from './store/reducers';
 import WrapDashboard from './style';
 import { ColRightWrapper } from 'containers/Layout/LoggedInLayout';
-import Statistic from './Statistic';
-import Events from './Events';
 
 interface Props {}
 
@@ -22,11 +20,7 @@ function Dashboard({}: Props) {
     <ErrorBound>
       <ColRightWrapper header="Dashboard">
         <WrapDashboard>
-
-          <Statistic />
-
-          <Events />
-          
+          Dashboard
         </WrapDashboard>
       </ColRightWrapper>
     </ErrorBound>

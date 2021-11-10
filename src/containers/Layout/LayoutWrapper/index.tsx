@@ -1,5 +1,5 @@
 import { requestToken } from 'api/axios';
-import { Children, useEffect, useMemo } from 'react';
+import { Children, useEffect } from 'react';
 import API_URL from 'api/url';
 import { handleError } from 'helpers';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,14 +7,12 @@ import { setInfo } from 'containers/App/store/actions';
 import { Route, Switch, useHistory } from 'react-router';
 import { selectAppStore } from 'containers/App/store/selecters';
 import {
-  ADMIN_ROUTES,
-  USER_ROUTES,
+  ROUTES,
   IRoutesInRole,
   ItemRoute,
 } from 'configs/routes';
 import LoggedInLayout from '../LoggedInLayout';
 import ProtectRoute from 'components/ProtectRoute';
-import UserDashboard from 'containers/User/UserDashboard';
 
 export default function LayoutWrapper() {
   const dispatch = useDispatch();
@@ -31,14 +29,11 @@ export default function LayoutWrapper() {
       .catch(err => {
         handleError(err);
         localStorage.removeItem('token');
-        history.replace('/login');
+        // history.replace('/login');
       });
   }, [dispatch, history]);
 
-  const routes = useMemo(
-    () => (info?.type === 'admin' ? ADMIN_ROUTES : USER_ROUTES),
-    [info],
-  );
+  const routes = ROUTES
 
   return <MapRoutes routes={routes} />;
 }
@@ -48,9 +43,6 @@ const MapRoutes = ({ routes }: { routes: IRoutesInRole }) => {
     <Route>
       <LoggedInLayout sidebarRoutes={routes.SIDEBAR}>
         <Switch>
-          <Route path='/test'>
-            <UserDashboard />
-          </Route>
           {Children.toArray(
             routes.COMPONENT.map(r => {
               if (r.child) {

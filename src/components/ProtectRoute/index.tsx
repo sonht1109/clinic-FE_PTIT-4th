@@ -9,10 +9,10 @@ import { Alert } from 'components/Alert';
 
 const CheckRoute = ({ children }: { children: any }) => {
   // if no has token in localStoreage when access to private route
-  if (!localStorage.getItem('token')) {
-    Alert({ name: 'Vui lòng đăng nhập lại.', icon: 'warning' });
-    return <Redirect to="/login" />;
-  }
+  // if (!localStorage.getItem('token')) {
+  //   Alert({ name: 'Vui lòng đăng nhập lại.', icon: 'warning' });
+  //   return <Redirect to="/login" />;
+  // }
   return children;
 };
 

@@ -1,6 +1,6 @@
 import React, { Children, ReactNode, useEffect } from 'react';
 import { Overlay, SLeft, SLoggedIn, SRight } from './styles';
-import logo from 'assets/images/layout/logo.png';
+import logo from 'assets/images/layout/logo-2.png';
 import { ItemRoute } from 'configs/routes';
 import MenuParent from './MenuParent';
 import { useHistory, useLocation } from 'react-router';
@@ -70,8 +70,8 @@ const ColLeft = ({ sidebarRoutes }: { sidebarRoutes: ItemRoute[] }) => {
             className="left__logo"
             src={logo}
             alt="logo"
-            width={94}
-            height={30}
+            width={100}
+            height={"auto"}
           />
           <div className="left__list">
             {Children.toArray(
@@ -81,9 +81,8 @@ const ColLeft = ({ sidebarRoutes }: { sidebarRoutes: ItemRoute[] }) => {
             )}
           </div>
           <div className="left__right">
-            <img src={right} width={180} height={160} alt="right" />
             <p>
-              Copyright &copy; {new Date().getFullYear()} BYTESOFT. All rights
+              Copyright &copy; {new Date().getFullYear()} sonht All rights
               reserved.
             </p>
             <Button

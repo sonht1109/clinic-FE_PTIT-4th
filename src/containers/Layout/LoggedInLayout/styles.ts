@@ -55,7 +55,7 @@ export const SLeft = styled.div<{ isOpen: boolean }>`
     }
 
     &__right {
-      margin: 0 8px;
+      margin-bottom: 0 8px;
       margin-top: 143px;
       border-radius: 24px;
       background-color: white;
@@ -64,8 +64,8 @@ export const SLeft = styled.div<{ isOpen: boolean }>`
         margin-top: -47px;
       }
       & > p {
+        margin-top: 0;
         margin-bottom: 8px;
-        margin-top: 16px;
         font-weight: 500;
         font-size: 14px;
         line-height: 20px;

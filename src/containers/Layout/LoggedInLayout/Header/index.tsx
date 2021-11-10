@@ -1,13 +1,9 @@
 import HeaderText from 'components/HeaderText';
 import Breadcum, { ILink } from 'components/Breadcum';
-import { FaBars, FaEllipsisV } from 'react-icons/fa';
+import { FaEllipsisV } from 'react-icons/fa';
 import avtSrc from 'assets/images/layout/avt-placeholder.png';
 import { useRouteMatch } from 'react-router';
 import { SHeader, SHeaderRightItem } from './styles';
-import { toggleSidebar } from 'containers/App/store/actions';
-import Balance from './Balance';
-import Bell from './Bell';
-import { SBell } from './Bell/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAppStore } from 'containers/App/store/selecters';
 
@@ -34,9 +30,6 @@ export default function Header({ header, links }: Props) {
       </div>
 
       <div className="header__right">
-        {info?.type === 'user' && <Balance />}
-
-        <Bell />
 
         <SHeaderRightItem className="sub-menu pointer">
           <div className="avt round">
@@ -44,15 +37,6 @@ export default function Header({ header, links }: Props) {
           </div>
           <FaEllipsisV color="#718098" />
         </SHeaderRightItem>
-
-        <SBell
-          className="toggle-menu"
-          onClick={() => {
-            dispatch(toggleSidebar());
-          }}
-        >
-          <FaBars size={20} fill="#A6B0CF" />
-        </SBell>
       </div>
     </SHeader>
   );

@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 
 const usePermission = (permissionCode: string) => {
   const { info } = useSelector(selectAppStore);
-  if(!info || !info.groupPermission) return null;
+  if(!info || !info?.groupPermission) return null;
 
-  const permissionOptions = info.groupPermission.options.filter(
+  const permissionOptions = info?.groupPermission.options.filter(
     o => o.permission.code === permissionCode,
   )[0];
 

@@ -1,6 +1,6 @@
 import { SLogin } from './styles';
 import bannerSrc from 'assets/images/login/banner.png';
-import logoSrc from 'assets/images/layout/logo-green.png';
+import logoSrc from 'assets/images/layout/logo-2.png';
 import { FaLock, FaPhone } from 'react-icons/fa';
 import Button from 'components/Button';
 import { useForm } from 'react-hook-form';
@@ -13,32 +13,18 @@ import { handleError } from 'helpers';
 import API_URL from 'api/url';
 import { useHistory } from 'react-router';
 import WithWrapper from 'components/Input/WithWrapper';
-import useModal from 'hooks/useModal';
-import { useState } from 'react';
-import loadable from 'components/Loading/Loadable';
-
-const CodeModal = loadable(() => import('./CodeModal'));
 
 export default function Login() {
   const intl = useIntl();
   const { register, handleSubmit, errors } = useForm();
-  const history = useHistory();
-
-  const [token, setToken] = useState<string>('');
-
-  const { isOpen, toggleModal } = useModal();
+  const history = useHistory()
 
   const onSubmit = (data: any) => {
     requestInter({ method: 'POST', url: API_URL.AUTH.LOGIN, data })
       .then(res => {
         if (res.data?.token) {
-          if (res.data?.twoFaAuthenticate) {
-            toggleModal(true);
-            setToken(res.data?.token);
-          } else {
-            localStorage.setItem('token', res.data?.token);
-            history.push(`/`);
-          }
+          localStorage.setItem('token', res.data?.token);
+          history.push(`/`);
         }
       })
       .catch(err => handleError(err));
@@ -47,7 +33,6 @@ export default function Login() {
   return (
     <>
       <SLogin>
-        123
         <div className="login__container">
           <div className="login__col login__col-left">
             <img src={bannerSrc} alt="" />
@@ -58,8 +43,8 @@ export default function Login() {
                 className="col-right__logo"
                 src={logoSrc}
                 alt="logo"
-                width={94}
-                height={30}
+                width={100}
+                height={'auto'}
               />
               <h2 className="col-right__header">Đăng nhập</h2>
               <form
@@ -125,8 +110,6 @@ export default function Login() {
           </div>
         </div>
       </SLogin>
-
-      {token !== '' && <CodeModal {...{ isOpen, toggleModal, token }} />}
     </>
   );
 }

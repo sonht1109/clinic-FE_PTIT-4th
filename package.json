@@ -37,7 +37,7 @@
     "dev": "concurrently --kill-others \"./node_modules/.bin/json-server --watch fake-api/db.js --port 3001 --static fake-api/static --delay 1000\" \"react-scripts start\"",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "addd": "npm run build && git add ."
+    "badd": "npm run build && git add ."
   },
   "eslintConfig": {
     "extends": [
