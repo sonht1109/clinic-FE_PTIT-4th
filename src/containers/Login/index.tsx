@@ -47,6 +47,7 @@ export default function Login() {
   return (
     <>
       <SLogin>
+        123
         <div className="login__container">
           <div className="login__col login__col-left">
             <img src={bannerSrc} alt="" />
