@@ -22,6 +22,7 @@ import Demo from 'containers/Demo';
 
 function App() {
   const { loading } = useSelector(selectAppStore);
+console.log("hellllllo");
 
   return (
     <LanguageProvider>
