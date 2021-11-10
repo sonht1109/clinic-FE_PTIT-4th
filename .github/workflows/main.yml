@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,39 +21,24 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    # steps:
-    #   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    #   - uses: actions/checkout@v2
-
-    #   # Runs a single command using the runners shell
-    #   - name: Run a one-line script
-    #     run: echo Hello, world!
-
-    #   - name: Deploying to Digitalocean droplet
-    #     uses: appleboy/ssh-action@master # An action made to control Linux servers
-    #     with: # We set all our secrets here for the action, these won't be shown in the action logs
-    #       host: ${{ secrets.IP }}
-    #       username: ${{ secrets.USER }}
-    #       password: ${{ secrets.PASS }}
-    #       port: 22
-    #       script: |
-    #         cd ~/web-timezone/
-    #         git pull
-    #         pm2 restart 0
-    #   - name: Alll done....
-    #     run: echo Alll done....
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run: apt update && apt install -y openssh-client git
-      - name: Setup key
-        uses: ./
-        with:
-          ssh-private-key: |
-            ${{ secrets.DEPLOY_KEY }}
-      - run: |
-            cd ~/clinic-FE_PTIT-4th
-            git pull  
-            npm install
-            npm run build
-            pm2 restart 0
 
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Deploying to Digitalocean droplet
+        uses: appleboy/ssh-action@master # An action made to control Linux servers
+        with: # We set all our secrets here for the action, these won't be shown in the action logs
+          host: ${{ secrets.IP }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASS }}
+          port: 22
+          script: |
+            cd ~/clinic-FE_PTIT-4th/
+            git pull
+            pm2 restart 0
+      - name: Alll done....
+        run: echo Alll done....
