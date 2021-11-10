@@ -17,8 +17,23 @@ function Alert({ name, icon }: Props) {
     position: 'top-right',
     toast: true,
     timer: 5000,
-    showConfirmButton: false, 
+    showConfirmButton: false,
   });
 }
 
 export { Alert };
+
+<div className="row">
+  <div className="slide-anim col-md-3 col-sm-6">
+    <img src="..." alt="..." width="200" height="150" />
+  </div>
+  <div className="slide-anim col-md-3 col-sm-6">
+    <img src="..." alt="..." width="200" height="150" />
+  </div>
+  <div className="slide-anim col-md-3 col-sm-6">
+    <img src="..." alt="..." width="200" height="150" />
+  </div>
+  <div className="slide-anim col-md-3 col-sm-6">
+    <img src="..." alt="..." width="200" height="150" />
+  </div>
+</div>;
