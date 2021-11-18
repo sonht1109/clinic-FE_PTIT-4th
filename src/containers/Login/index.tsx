@@ -1,7 +1,7 @@
 import { SLogin } from './styles';
 import bannerSrc from 'assets/images/login/banner.png';
 import logoSrc from 'assets/images/layout/logo-2.png';
-import { FaLock, FaPhone } from 'react-icons/fa';
+import { FaLock, FaPhone, FaUserAlt } from 'react-icons/fa';
 import Button from 'components/Button';
 import { useForm } from 'react-hook-form';
 import ErrorMessage from 'components/Input/ErrorMessage';
@@ -19,11 +19,15 @@ export default function Login() {
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory()
 
+  // son
+  // 123456
+
   const onSubmit = (data: any) => {
     requestInter({ method: 'POST', url: API_URL.AUTH.LOGIN, data })
       .then(res => {
-        if (res.data?.token) {
-          localStorage.setItem('token', res.data?.token);
+        if (res.data) {
+          console.log(res.data)
+          localStorage.setItem('token', res.data.split("N04LTW ")[1]);
           history.push(`/`);
         }
       })
@@ -54,13 +58,12 @@ export default function Login() {
               >
                 <WithWrapper.Text
                   inputProps={{
-                    type: 'tel',
-                    name: 'phone',
+                    name: 'username',
                     autoComplete: 'new-password',
                   }}
                   wrapperProps={{
-                    label: 'Số điện thoại',
-                    icon: <FaPhone size={12} />,
+                    label: 'Username',
+                    icon: <FaUserAlt size={12} />,
                     className: 'form-item',
                   }}
                   register={register({
@@ -68,13 +71,6 @@ export default function Login() {
                       { ...globalMessages.required },
                       { field: globalMessages.phone.defaultMessage },
                     ),
-                    pattern: {
-                      value: REGEX.PHONE,
-                      message: intl.formatMessage(
-                        { ...globalMessages.wrongPattern },
-                        { field: globalMessages.phone.defaultMessage },
-                      ),
-                    },
                   })}
                 />
                 <ErrorMessage errors={errors} field="phone" />
@@ -95,9 +91,9 @@ export default function Login() {
                       { field: globalMessages.password.defaultMessage },
                     ),
                     pattern: {
-                      value: REGEX.PASSWORD,
+                      value: REGEX.PASSWORD_ANY,
                       message: intl.formatMessage({
-                        ...globalMessages.passwordPattern,
+                        ...globalMessages.passwordAnyPattern,
                       }),
                     },
                   })}

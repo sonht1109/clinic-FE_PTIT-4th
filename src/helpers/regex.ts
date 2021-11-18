@@ -11,7 +11,7 @@ const REGEX = {
   IDENTITY_NUMBER: /^(\d{9}|\d{12})$/,
   USER_NAME: /^[a-zA-Z0-9]+$/,
   PASSWORD: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?^&#.])[A-Za-z\d@$!%*?^&#.]{8,}$/,
-  PASSWORD_ANY: /^\S{8,50}$/,
+  PASSWORD_ANY: /^\S{6,50}$/,
   TAX_NUMBER: /^\d{10}$/,
 };
 

@@ -25,7 +25,7 @@ const requestToken = ({ method, url, data, ...rest }: AxiosRequestConfig) => {
     url: url,
     data: data,
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `N04LTW ${token}`,
     },
     ...rest,
   });
@@ -80,7 +80,7 @@ const requestInterToken = ({
     url: url,
     data: data,
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `N04LTW ${token}`,
     },
     ...rest,
   });

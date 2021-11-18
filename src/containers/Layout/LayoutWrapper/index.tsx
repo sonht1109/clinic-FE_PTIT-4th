@@ -20,7 +20,7 @@ export default function LayoutWrapper() {
   const { info } = useSelector(selectAppStore);
 
   useEffect(() => {
-    requestToken({ method: 'GET', url: API_URL.INFORMATIONS.SINGLE_ACCOUNT })
+    requestToken({ method: 'GET', url: API_URL.INFO.GET })
       .then(res => {
         if (res.data) {
           dispatch(setInfo({ ...res.data }));
@@ -29,7 +29,7 @@ export default function LayoutWrapper() {
       .catch(err => {
         handleError(err);
         localStorage.removeItem('token');
-        // history.replace('/login');
+        history.replace('/login');
       });
   }, [dispatch, history]);
 

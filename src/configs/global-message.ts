@@ -20,12 +20,12 @@ const globalMessages = defineMessages({
   },
   passwordAnyPattern: {
     id: `${validate}.passwordAnyPattern`,
-    defaultMessage: "Mật khẩu phải dài từ 8-50 ký tự"
+    defaultMessage: "Mật khẩu phải dài từ 6-50 ký tự"
   },
   passwordPattern: {
     id: `${validate}.password_pattern`,
     defaultMessage:
-      "Mật khẩu phải chứa 8 ký tự, bao gồm chữ hoa, chữ thường và ký tự đặc biệt",
+      "Mật khẩu phải chứa 6 ký tự, bao gồm chữ hoa, chữ thường và ký tự đặc biệt",
   },
 
   // input
