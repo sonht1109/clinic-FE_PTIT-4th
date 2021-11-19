@@ -29,7 +29,7 @@ export default function HandleButton({
 }: Props) {
   const hasTooltip = tooltip !== '';
 
-  const permissionOption = usePermission(permissionCode);
+  const permissionOption = usePermission();
 
   if (
     !permissionOption ||

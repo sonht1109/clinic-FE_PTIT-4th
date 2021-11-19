@@ -33,6 +33,7 @@ export const SLeft = styled.div<{ isOpen: boolean }>`
 
   .left-container {
     width: 100%;
+    min-height: calc(100vh - 30px);
     background-image: url(${leftBg});
     background-position: top;
     background-size: cover;
@@ -52,6 +53,7 @@ export const SLeft = styled.div<{ isOpen: boolean }>`
 
     &__list {
       width: 100%;
+      flex-grow: 1;
     }
 
     &__right {

@@ -1,13 +1,14 @@
-import {
-  AiOutlineHome,
-} from 'react-icons/ai';
 import loadable from "components/Loading/Loadable";
+import { FaStethoscope, FaUserInjured, FaUserNurse } from 'react-icons/fa';
 
 //containers
-const AdminDashboard = loadable(() => import('containers/Admin/Dashboard'));
+// const AdminDashboard = loadable(() => import('containers/Admin/Dashboard'));
+const Doctor = loadable(() => import('containers/Doctor'));
+const Nurse = loadable(() => import('containers/Nurse'));
+const Patient = loadable(() => import('containers/Patient'));
 
 export interface ItemRoute {
-  name: string;
+  name?: string;
   private: boolean;
   component?: JSX.Element;
   path: string;
@@ -24,20 +25,45 @@ export interface IRoutesInRole {
 export const ROUTES: IRoutesInRole = {
   COMPONENT: [
     {
-      name: 'Trang chủ',
       private: true,
-      component: <AdminDashboard />,
-      path: '/',
+      component: <Doctor />,
+      path: '/doctor',
+      exact: true,
+    },
+    {
+      private: true,
+      component: <Nurse />,
+      path: '/nurse',
+      exact: true,
+    },
+    {
+      private: true,
+      component: <Patient />,
+      path: '/patient',
       exact: true,
     },
   ],
   SIDEBAR: [
     {
-      name: 'Trang chủ',
+      name: 'Quản lý bác sỹ',
       private: true,
-      component: <AdminDashboard />,
-      path: '/admin',
-      icon: <AiOutlineHome size={16} color="white" />,
+      component: <Doctor />,
+      path: '/doctor',
+      icon: <FaStethoscope size={16} color="white" />,
+    },
+    {
+      name: 'Quản lý y tá',
+      private: true,
+      component: <Nurse />,
+      path: '/nurse',
+      icon: <FaUserNurse size={16} color="white" />,
+    },
+    {
+      name: 'Quản lý bệnh nhân',
+      private: true,
+      component: <Patient />,
+      path: '/patient',
+      icon: <FaUserInjured size={16} color="white" />,
     },
   ],
 };

@@ -103,3 +103,24 @@ export const SHeaderRightItem = styled.div`
     margin: 0 5px;
   }
 `;
+
+export const SBell = styled(SHeaderRightItem)`
+  position: relative;
+  background: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 16px rgba(166, 176, 207, 0.2);
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding-top: 10px;
+  .badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ff4b4b;
+  }
+`;

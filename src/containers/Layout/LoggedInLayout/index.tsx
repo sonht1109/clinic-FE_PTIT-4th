@@ -4,7 +4,6 @@ import logo from 'assets/images/layout/logo-2.png';
 import { ItemRoute } from 'configs/routes';
 import MenuParent from './MenuParent';
 import { useHistory, useLocation } from 'react-router';
-import right from 'assets/images/layout/menu-right.png';
 import Button from 'components/Button';
 import { FaTimes } from 'react-icons/fa';
 import Header from './Header';
@@ -82,7 +81,7 @@ const ColLeft = ({ sidebarRoutes }: { sidebarRoutes: ItemRoute[] }) => {
           </div>
           <div className="left__right">
             <p>
-              Copyright &copy; {new Date().getFullYear()} sonht All rights
+              Copyright &copy; {new Date().getFullYear()} sonht - All rights
               reserved.
             </p>
             <Button
