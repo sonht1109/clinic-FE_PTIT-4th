@@ -23,6 +23,7 @@ export type TCoreUser = {
   email: string;
   id: number;
   role: Role;
+  username: string;
 };
 
 export type Role = {

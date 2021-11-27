@@ -1,26 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.6d6a4f96.chunk.css",
-    "main.js": "/static/js/main.0eac409b.chunk.js",
-    "runtime-main.js": "/static/js/runtime-main.22d6f2b9.js",
-    "static/css/2.17f2fa5e.chunk.css": "/static/css/2.17f2fa5e.chunk.css",
-    "static/js/2.dacfde21.chunk.js": "/static/js/2.dacfde21.chunk.js",
-    "static/js/3.e1b4b747.chunk.js": "/static/js/3.e1b4b747.chunk.js",
-    "static/js/4.989da6f4.chunk.js": "/static/js/4.989da6f4.chunk.js",
-    "static/js/5.2c8a4d13.chunk.js": "/static/js/5.2c8a4d13.chunk.js",
+    "static/js/0.496b1162.chunk.js": "/static/js/0.496b1162.chunk.js",
+    "main.css": "/static/css/main.ade42803.chunk.css",
+    "main.js": "/static/js/main.be82e8a2.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.8ec94e59.js",
+    "static/css/3.17f2fa5e.chunk.css": "/static/css/3.17f2fa5e.chunk.css",
+    "static/js/3.fad0a812.chunk.js": "/static/js/3.fad0a812.chunk.js",
+    "static/css/4.55682cc2.chunk.css": "/static/css/4.55682cc2.chunk.css",
+    "static/js/4.a906eb0f.chunk.js": "/static/js/4.a906eb0f.chunk.js",
+    "static/css/5.55682cc2.chunk.css": "/static/css/5.55682cc2.chunk.css",
+    "static/js/5.0eb6b5c5.chunk.js": "/static/js/5.0eb6b5c5.chunk.js",
+    "static/js/6.dd0a6460.chunk.js": "/static/js/6.dd0a6460.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.dacfde21.chunk.js.LICENSE.txt": "/static/js/2.dacfde21.chunk.js.LICENSE.txt",
+    "static/js/0.496b1162.chunk.js.LICENSE.txt": "/static/js/0.496b1162.chunk.js.LICENSE.txt",
+    "static/js/3.fad0a812.chunk.js.LICENSE.txt": "/static/js/3.fad0a812.chunk.js.LICENSE.txt",
     "static/media/banner.695bd875.png": "/static/media/banner.695bd875.png",
+    "static/media/delete-modal.276a984a.png": "/static/media/delete-modal.276a984a.png",
     "static/media/icon-loading.fa4b2a69.svg": "/static/media/icon-loading.fa4b2a69.svg",
     "static/media/logo-2.png": "/static/media/logo-2.cc2fb1ea.png",
     "static/media/menu-left-bg.f0f0fbb6.png": "/static/media/menu-left-bg.f0f0fbb6.png",
     "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.22d6f2b9.js",
-    "static/css/2.17f2fa5e.chunk.css",
-    "static/js/2.dacfde21.chunk.js",
-    "static/css/main.6d6a4f96.chunk.css",
-    "static/js/main.0eac409b.chunk.js"
+    "static/js/runtime-main.8ec94e59.js",
+    "static/css/3.17f2fa5e.chunk.css",
+    "static/js/3.fad0a812.chunk.js",
+    "static/css/main.ade42803.chunk.css",
+    "static/js/main.be82e8a2.chunk.js"
   ]
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { DeepMap, FieldError, FieldValues } from 'react-hook-form';
 import styled from 'styled-components';
+import { ErrorMessage as EM } from '@hookform/error-message';
 
 interface Props {
   errors: DeepMap<FieldValues, FieldError>;
@@ -8,8 +9,13 @@ interface Props {
 }
 
 export default function ErrorMessage({ errors, field }: Props) {
-  if (errors[field]) return <SErrorMessage>{errors[field].message}</SErrorMessage>;
-  return null;
+  return (
+    <EM
+      errors={errors}
+      name={field}
+      render={({ message }) => <SErrorMessage>{message}</SErrorMessage>}
+    />
+  );
 }
 
 export const SErrorMessage = styled.p`

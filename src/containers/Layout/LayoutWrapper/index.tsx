@@ -1,11 +1,9 @@
 import { requestToken } from 'api/axios';
 import { Children, useEffect } from 'react';
 import API_URL from 'api/url';
-import { handleError } from 'helpers';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setInfo } from 'containers/App/store/actions';
 import { Route, Switch, useHistory } from 'react-router';
-import { selectAppStore } from 'containers/App/store/selecters';
 import {
   ROUTES,
   IRoutesInRole,
@@ -13,11 +11,11 @@ import {
 } from 'configs/routes';
 import LoggedInLayout from '../LoggedInLayout';
 import ProtectRoute from 'components/ProtectRoute';
+import { Alert } from 'components/Alert';
 
 export default function LayoutWrapper() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { info } = useSelector(selectAppStore);
 
   useEffect(() => {
     requestToken({ method: 'GET', url: API_URL.INFO.GET })
@@ -26,14 +24,14 @@ export default function LayoutWrapper() {
           dispatch(setInfo({ ...res.data }));
         }
       })
-      .catch(err => {
-        handleError(err);
+      .catch(() => {
         localStorage.removeItem('token');
         history.replace('/login');
+        Alert({icon: "error", name: "Phiên đăng nhập đã hết hạn"});
       });
   }, [dispatch, history]);
 
-  const routes = ROUTES
+  const routes = ROUTES;
 
   return <MapRoutes routes={routes} />;
 }

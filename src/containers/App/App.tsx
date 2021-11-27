@@ -32,9 +32,6 @@ function App() {
               <Login />
             </Route>
             <LayoutWrapper />
-            <Route exact path="/demo">
-              <Demo />
-            </Route>
             <Route path="*">
               <NotFoundPage />
             </Route>

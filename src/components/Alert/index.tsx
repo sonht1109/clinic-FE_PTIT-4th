@@ -10,7 +10,7 @@ interface Props {
   icon?: 'success' | 'error' | 'warning' | 'info' | 'question' | undefined;
 }
 
-function Alert({ name, icon }: Props) {
+function Alert({ name, icon = 'success' }: Props) {
   return Swal.fire({
     title: name,
     icon: icon,

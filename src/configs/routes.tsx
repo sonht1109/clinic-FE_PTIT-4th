@@ -1,4 +1,5 @@
 import loadable from "components/Loading/Loadable";
+import Info from "containers/Info";
 import { FaStethoscope, FaUserInjured, FaUserNurse } from 'react-icons/fa';
 
 //containers
@@ -40,6 +41,12 @@ export const ROUTES: IRoutesInRole = {
       private: true,
       component: <Patient />,
       path: '/patient',
+      exact: true,
+    },
+    {
+      private: true,
+      component: <Info />,
+      path: '/',
       exact: true,
     },
   ],

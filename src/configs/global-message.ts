@@ -33,6 +33,10 @@ const globalMessages = defineMessages({
     id: `${input}.phone`,
     defaultMessage: "SĐT"
   },
+  username: {
+    id: `${input}.username`,
+    defaultMessage: "Username"
+  },
   password: {
     id: `${input}.password`,
     defaultMessage: "Mật khẩu"

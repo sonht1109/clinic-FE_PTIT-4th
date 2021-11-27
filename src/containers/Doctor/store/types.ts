@@ -23,9 +23,20 @@ export type ActionsDoctor = ActionType<typeof actions>;
 export type TDoctor = {
   username: string;
   literacy: string;
-  experience: string;
+  experience: number;
   level: string;
   nationalId: string;
   phone: string;
   user: TCoreUser;
+  name: string;
+  degree: string;
+  id: number;
+  birthDate: string | Date;
+}
+
+export type TDisease = {
+  id: number;
+  drugs: any;
+  name: string;
+  description: string;
 }

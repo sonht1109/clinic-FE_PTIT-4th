@@ -13,9 +13,9 @@ import Button from 'components/Button';
 export interface ICoreModal {
   isOpen: boolean;
   toggleModal: React.Dispatch<React.SetStateAction<boolean>>;
-}
-interface IModal extends ICoreModal {
   title: string;
+}
+export interface IModal extends ICoreModal {
   subtitle?: string;
   hideCloseIcon?: boolean;
   children: ReactChild | ReactChildren | ReactChild[];

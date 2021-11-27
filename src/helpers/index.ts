@@ -6,7 +6,7 @@ const helper = {};
 export const handleError = (err: AxiosError) => {
 
   if(err.response) {
-    Alert({name: err.response.data.message || "Lỗi không xác định", icon: 'error'})
+    Alert({name: err.response.data.message || err.response.data.status || "Lỗi không xác định", icon: 'error'})
   }
   else {
     console.error(JSON.stringify(err))

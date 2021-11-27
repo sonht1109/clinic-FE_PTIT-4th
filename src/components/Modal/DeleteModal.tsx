@@ -20,7 +20,7 @@ export default function DeleteModal({
   onSubmit,
   isOpen,
   toggleModal,
-  content = ""
+  content = 'Bạn có chắc chắn muốn xóa dữ liệu ?',
 }: IDeleteModal) {
   return (
     <Modal title={title} {...{ isOpen, toggleModal }}>
@@ -33,7 +33,8 @@ export default function DeleteModal({
             border="1px solid #00CB82"
             onClick={() => {
               onCancel && onCancel();
-              toggleModal(false)}}
+              toggleModal(false);
+            }}
             background="white"
             width="152px"
             height="40px"

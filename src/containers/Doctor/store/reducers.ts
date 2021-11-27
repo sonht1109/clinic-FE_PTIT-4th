@@ -25,6 +25,25 @@ const reducersDoctor: Reducer<StoreDoctor, ActionsDoctor> = (
   actions: ActionsDoctor,
 ) => {
   switch (actions.type) {
+    case types.SET_DATA: {
+      return {
+        ...state,
+        data: [...actions.payload.data],
+        total: actions.payload.total,
+      };
+    }
+
+    case types.SELECT_ROW: {
+      return {
+        ...state,
+        selectedRow: actions.payload
+          ? actions.payload?.id === state.selectedRow?.id
+            ? null
+            : { ...actions.payload }
+          : null,
+      };
+    }
+
     default:
       return { ...state };
   }

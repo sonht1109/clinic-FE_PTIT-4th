@@ -12,7 +12,10 @@ import Dashboard from "containers/Admin/Dashboard/store/reducers";
 import Doctor from "containers/Doctor/store/reducers";
 import Nurse from "containers/Nurse/store/reducers";
 import Patient from "containers/Patient/store/reducers";
+import Info from "containers/Info/store/reducers";
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
+
+
 
 
 
@@ -36,8 +39,10 @@ const rootReducer = combineReducers({
   Doctor,
   Nurse,
   Patient,
+  Info,
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 
+  
   
   
   

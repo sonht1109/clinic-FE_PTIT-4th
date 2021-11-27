@@ -10,6 +10,8 @@ import useInjectReducer from 'redux/useInjectReducer';
 import reducersDoctor from './store/reducers';
 import WrapDoctor from './style';
 import { ColRightWrapper } from 'containers/Layout/LoggedInLayout';
+import DataTable from './DataTable';
+import Handle from './Handle';
 
 interface Props {}
 
@@ -19,7 +21,10 @@ function Doctor({}: Props) {
   return (
     <ErrorBound>
       <ColRightWrapper header="Bác sỹ">
-        <WrapDoctor> Doctor </WrapDoctor>
+        <WrapDoctor> 
+          <Handle />
+          <DataTable />
+        </WrapDoctor>
       </ColRightWrapper>
     </ErrorBound>
   );

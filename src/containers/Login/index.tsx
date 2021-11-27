@@ -69,11 +69,11 @@ export default function Login() {
                   register={register({
                     required: intl.formatMessage(
                       { ...globalMessages.required },
-                      { field: globalMessages.phone.defaultMessage },
+                      { field: globalMessages.username.defaultMessage },
                     ),
                   })}
                 />
-                <ErrorMessage errors={errors} field="phone" />
+                <ErrorMessage errors={errors} field="username" />
 
                 <WithWrapper.Password
                   inputProps={{
