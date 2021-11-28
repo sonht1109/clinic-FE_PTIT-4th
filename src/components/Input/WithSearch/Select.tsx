@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { IRSelect } from '../Select';
 
 export default function WithSearchSelect({
-  isMultiple = false,
   wrapperClassName,
   ...rest
 }: IRSelect) {

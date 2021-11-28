@@ -1,6 +1,6 @@
-import globalMessages from "configs/global-message";
-import { FaCapsules, FaCoins, FaPencilAlt } from "react-icons/fa";
-import { IntlShape } from "react-intl";
+import globalMessages from 'configs/global-message';
+import { FaCapsules, FaPencilAlt } from 'react-icons/fa';
+import { IntlShape } from 'react-intl';
 import { GiRaggedWound } from 'react-icons/gi';
 
 export const theads = [
@@ -46,7 +46,6 @@ export const viewFields = (t: IntlShape) => [
   {
     name: 'disease.drugs',
     type: 'select',
-    isMulti: true,
     icon: <FaCapsules />,
     label: 'Thuốc chữa',
     rules: {
@@ -56,4 +55,4 @@ export const viewFields = (t: IntlShape) => [
       ),
     },
   },
-]
+];

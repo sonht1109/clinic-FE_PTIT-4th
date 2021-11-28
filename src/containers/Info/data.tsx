@@ -16,13 +16,13 @@ export const fields = [
   {
     name: "info.createdAt",
     type: "text",
-    label: "Created at",
+    label: "Ngày tạo",
     icon: <FaCalendar />
   },
   {
     name: "info.role.name",
     type: "text",
-    label: "Role name",
+    label: "Role",
     icon: <FaLayerGroup />
   }
 ]

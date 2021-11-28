@@ -30,3 +30,7 @@ export type TDisease = {
   id: number;
   name: string;
 }
+
+export enum EOptionKey {
+  DRUGS = 'drugs'
+}

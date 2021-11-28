@@ -59,7 +59,9 @@ export default function DataTable() {
 
 const TableRow = ({ d, i }: { d: TDisease; i: number }) => {
   const { selectedRow } = useSelector(selectDiseaseStore);
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
+
+  const drugs = d?.drugs.map((d) => d.id)
 
   return (
     <tr onClick={() => dispatch(onSelectRow(d))}>
@@ -68,7 +70,7 @@ const TableRow = ({ d, i }: { d: TDisease; i: number }) => {
       </td>
       <td>{d?.name}</td>
       <td>{d?.description}</td>
-      <td>{d?.description}</td>
+      <td>{drugs.toString()}</td>
     </tr>
   );
 };

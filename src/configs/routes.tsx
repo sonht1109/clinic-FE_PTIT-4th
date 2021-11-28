@@ -1,4 +1,5 @@
 import loadable from 'components/Loading/Loadable';
+import Demo from 'containers/Demo';
 import Info from 'containers/Info';
 import { FaCapsules, FaStethoscope, FaUserInjured, FaUserNurse } from 'react-icons/fa';
 import { GiRaggedWound } from 'react-icons/gi';
@@ -62,6 +63,12 @@ export const ROUTES: IRoutesInRole = {
       private: true,
       component: <Drug />,
       path: '/drug',
+      exact: true,
+    },
+    {
+      private: true,
+      component: <Demo />,
+      path: '/demo',
       exact: true,
     },
   ],

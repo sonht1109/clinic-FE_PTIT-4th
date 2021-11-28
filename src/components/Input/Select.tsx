@@ -2,12 +2,10 @@ import RS, { Props } from 'react-select';
 import styled from 'styled-components';
 
 export interface IRSelect extends Props {
-  isMultiple?: boolean;
   wrapperClassName?: string;
 }
 
 export default function Select({
-  isMultiple = false,
   wrapperClassName,
   ...rest
 }: IRSelect) {
@@ -20,13 +18,14 @@ export default function Select({
           IndicatorSeparator: () => null,
           DropdownIndicator: () => null,
         }}
+        defaultValue={[{label:"1", value: "1"}]}
         {...rest}
       />
     </SSelect>
   );
 }
 
-const SSelect = styled.div`
+export const SSelect = styled.div`
   width: 100%;
   height: 20px;
   .rs {
@@ -54,6 +53,20 @@ const SSelect = styled.div`
     }
     &__placeholder {
       margin: 0;
+      font-size: 12px;
+      color: #718098;
+    }
+    &__input-container {
+      margin: 0;
+    }
+  }
+`;
+
+export const SAsync = styled(SSelect)`
+  height: auto;
+  .rs {
+    &__control {
+      height: auto;
     }
   }
 `;

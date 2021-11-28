@@ -5,12 +5,14 @@
  */
 import * as types from './constants';
 import { action } from 'typesafe-actions';
-import { requestInterToken } from 'api/axios';
+import { requestInterToken, requestToken } from 'api/axios';
 import API_URL from 'api/url';
 import { handleError } from 'helpers';
 import { TDisease } from './types';
 import { Alert } from 'components/Alert';
 import { Pagination } from 'configs/types';
+import { PAGE_SIZE } from 'configs';
+import { TDrug } from 'containers/Drug/store/types';
 
 export const onRefetch = () => action(types.REFETCH);
 
@@ -33,9 +35,7 @@ export const getData =
       },
     })
       .then(res => {
-        dispatch(
-          setData(res.data || [], res.data?.totalElements || 0),
-        );
+        dispatch(setData(res.data || [], res.data?.totalElements || 0));
       })
       .catch(handleError);
   };
@@ -85,3 +85,27 @@ export const onUpdate =
       })
       .catch(handleError);
   };
+
+export const getDrugs = ({
+  name,
+  onSuccess,
+}: {
+  name: string;
+  onSuccess: (args: any) => void;
+}) => {
+  requestToken({
+    method: 'GET',
+    url: API_URL.DRUG.DEFAULT,
+    params: { name, page: 0, size: PAGE_SIZE },
+  })
+    .then(res => {
+      if (res.data?.length > 0) {
+        const mappedData = res.data.map((d: TDrug) => ({
+          label: d.name,
+          value: d.id,
+        }));
+        onSuccess(mappedData);
+      }
+    })
+    .catch(handleError);
+};
