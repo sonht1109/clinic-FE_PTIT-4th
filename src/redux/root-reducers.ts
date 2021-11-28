@@ -13,7 +13,13 @@ import Doctor from "containers/Doctor/store/reducers";
 import Nurse from "containers/Nurse/store/reducers";
 import Patient from "containers/Patient/store/reducers";
 import Info from "containers/Info/store/reducers";
+import Disease from "containers/Disease/store/reducers";
+import Drug from "containers/Drug/store/reducers";
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
+
+
+
+
 
 
 
@@ -40,8 +46,12 @@ const rootReducer = combineReducers({
   Nurse,
   Patient,
   Info,
+  Disease,
+  Drug,
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 
+  
+  
   
   
   

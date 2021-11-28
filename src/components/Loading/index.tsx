@@ -1,11 +1,6 @@
-/**
- *
- * Loading
- *
- */
 import React, { memo, useEffect } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as IconLoading } from './icon-loading.svg';
+import ActivityIndicator from './ActivityIndicator';
 
 interface Props {
   active: boolean;
@@ -20,7 +15,7 @@ function Loading({ active }: Props) {
   if (active)
     return (
       <StylesLoading>
-        <IconLoading />
+        <ActivityIndicator size="lg" />
       </StylesLoading>
     );
   return null;
@@ -31,10 +26,11 @@ const StylesLoading = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgb(0 0 0 / 45%);
+  background-color: rgba(7, 15, 36, 0.618);
   align-items: center;
   display: flex;
-  z-index: 999;
+  z-index: 9999;
+  justify-content: center;
 `;
 
 export default memo(Loading);

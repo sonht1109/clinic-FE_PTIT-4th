@@ -16,6 +16,12 @@ const API_URL = {
   PATIENT: {
     DEFAULT: 'api/patient',
   },
+  DRUG: {
+    DEFAULT: 'api/drug',
+  },
+  DISEASE: {
+    DEFAULT: 'api/disease',
+  }
 };
 
 export default API_URL;

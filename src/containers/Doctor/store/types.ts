@@ -9,13 +9,16 @@ import * as actions from './actions';
 
 export interface StoreDoctor {
   data: TDoctor[];
-  pageNumber: number;
-  pageSize: number;
   total: number;
-  status: string;
-  keyword: string;
   selectedRow: TDoctor | null;
   shouldRefetch: boolean;
+  search: {
+    name: string;
+  };
+  paginate: {
+    page: number;
+    size: number;
+  }
 }
 
 export type ActionsDoctor = ActionType<typeof actions>;

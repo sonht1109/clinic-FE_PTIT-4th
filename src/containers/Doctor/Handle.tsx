@@ -5,7 +5,7 @@ import { PermOptionEnum } from 'enum';
 import React, { useState } from 'react';
 import { FaEye, FaPlus, FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import View from './Modals/View';
+import View from './modals/View';
 import { onDelete } from './store/actions';
 import { selectDoctorStore } from './store/selecters';
 

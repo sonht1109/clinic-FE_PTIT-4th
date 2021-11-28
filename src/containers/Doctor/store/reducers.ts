@@ -10,14 +10,17 @@ import * as types from './constants';
 import { ActionsDoctor, StoreDoctor } from './types';
 
 const initState: StoreDoctor = {
-  pageNumber: 1,
-  pageSize: PAGE_SIZE,
-  total: 0,
   data: [],
-  status: '',
-  keyword: '',
   selectedRow: null,
   shouldRefetch: false,
+  search: {
+    name: ''
+  },
+  total: 0,
+  paginate: {
+    page: 1,
+    size: PAGE_SIZE
+  }
 };
 
 const reducersDoctor: Reducer<StoreDoctor, ActionsDoctor> = (
@@ -42,6 +45,13 @@ const reducersDoctor: Reducer<StoreDoctor, ActionsDoctor> = (
             : { ...actions.payload }
           : null,
       };
+    }
+
+    case types.REFETCH: {
+      return {
+        ...state,
+        shouldRefetch: !state.shouldRefetch
+      }
     }
 
     default:

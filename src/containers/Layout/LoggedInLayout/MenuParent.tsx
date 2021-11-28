@@ -28,8 +28,7 @@ export default function MenuParent({ route, currentPath }: Props) {
       const childrenPaths = route.child.map(c => c.path);
       const active = childrenPaths.includes(currentPath);
       toggleOpen(active);
-    }
-    else {
+    } else {
       toggleOpen(route.path === currentPath);
     }
   }, [currentPath, route]);
@@ -59,13 +58,7 @@ export default function MenuParent({ route, currentPath }: Props) {
     );
   }
 
-  return (
-    <MainMenuParent
-      active={isOpen}
-      route={route}
-      canDropdown={false}
-    />
-  );
+  return <MainMenuParent active={isOpen} route={route} canDropdown={false} />;
 }
 
 const MainMenuParent = ({
@@ -110,8 +103,10 @@ const SMenuParent = styled.div`
     transition: 0.2s;
     .icon {
       background-color: white;
-      & > svg > path {
-        fill: #00cb82;
+      & > svg {
+        path {
+          fill: #00cb82;
+        }
       }
     }
   }

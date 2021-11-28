@@ -6,8 +6,8 @@ export type ISelect = {
 export const pageSize: number = 10;
 
 export interface Pagination {
-  pageNumber: number;
-  pageSize: number;
+  page: number;
+  size: number;
 }
 export interface ICoreAdmin {
   id: string;

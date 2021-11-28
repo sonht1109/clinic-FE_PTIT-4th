@@ -10,7 +10,7 @@ import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { viewFields } from '../data';
 import { onCreate, onUpdate } from '../store/actions';
-import { selectDoctorStore } from '../store/selecters';
+import { selectDiseaseStore } from '../store/selecters';
 
 interface Props extends ICoreModal {
   isCreating?: boolean;
@@ -27,33 +27,27 @@ export default function View({
   const { register, errors, control, setValue, watch, handleSubmit } =
     useForm();
 
-  const { selectedRow } = useSelector(selectDoctorStore);
+  const { selectedRow } = useSelector(selectDiseaseStore);
 
   const ds = useDispatch();
 
   useEffect(() => {
     if (selectedRow && isOpen && !isCreating) {
-      setValue('doctor', selectedRow);
-      setValue(
-        'doctor.birthDate',
-        !isNaN(new Date(selectedRow.birthDate).getTime())
-          ? new Date(selectedRow.birthDate)
-          : null,
-      );
+      setValue('disease', selectedRow);
     }
   }, [selectedRow, setValue, isOpen, isCreating]);
 
   const onSubmit = (data: any) => {
     if (isCreating) {
       ds(
-        onCreate(data.doctor, () => {
+        onCreate(data.disease, () => {
           Alert({ name: 'Thực hiện tạo mới thành công' });
           toggleModal(false);
         }),
       );
     } else {
       ds(
-        onUpdate({ ...data.doctor, id: selectedRow?.id }, () => {
+        onUpdate({ ...data.disease, id: selectedRow?.id }, () => {
           Alert({ name: 'Thực hiện cập nhật thành công' });
           toggleModal(false);
         }),

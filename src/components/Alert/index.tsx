@@ -16,8 +16,9 @@ function Alert({ name, icon = 'success' }: Props) {
     icon: icon,
     position: 'top-right',
     toast: true,
-    timer: 5000,
+    timer: 3000,
     showConfirmButton: false,
+    timerProgressBar: true,
   });
 }
 

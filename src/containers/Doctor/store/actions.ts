@@ -10,25 +10,38 @@ import API_URL from 'api/url';
 import { handleError } from 'helpers';
 import { TDoctor } from './types';
 import { Alert } from 'components/Alert';
+import { Pagination } from 'configs/types';
+
+export const onRefetch = () => action(types.REFETCH);
 
 export const setData = (data: [], total: number) =>
   action(types.SET_DATA, { data, total });
 
-export const handleChangePage = (page: number) =>
-  action(types.CHANGE_PAGE, page);
+export const onPaginate = (paginate: Pagination) =>
+  action(types.PAGINATE, paginate);
 
-export const handleChangePageSize = (size: number) =>
-  action(types.CHANGE_PAGE_SIZE, size);
-
-export const getData = () => (dispatch: any) => {
-  requestInterToken({ method: 'GET', url: API_URL.DOCTOR.DEFAULT })
-    .then(res => {
-      dispatch(setData(res.data, res.data?.length || 0));
+export const getData =
+  ({ page, size, name }: { page: number; size: number; name: string }) =>
+  (dispatch: any) => {
+    requestInterToken({
+      method: 'GET',
+      url: API_URL.DOCTOR.DEFAULT,
+      params: {
+        page: page - 1,
+        size,
+        name,
+      },
     })
-    .catch(handleError);
-};
+      .then(res => {
+        dispatch(
+          setData(res.data?.content || [], res.data?.totalElements || 0),
+        );
+      })
+      .catch(handleError);
+  };
 
-export const onSelectRow = (data: TDoctor | null) => action(types.SELECT_ROW, data);
+export const onSelectRow = (data: TDoctor | null) =>
+  action(types.SELECT_ROW, data);
 
 export const onDelete = (id: number) => (dispatch: any) => {
   requestInterToken({
@@ -37,7 +50,7 @@ export const onDelete = (id: number) => (dispatch: any) => {
     url: API_URL.DOCTOR.DEFAULT,
   })
     .then(() => {
-      dispatch(getData());
+      dispatch(onRefetch());
       Alert({ name: 'Thực hiện xóa thành công' });
     })
     .catch(handleError);
@@ -51,7 +64,7 @@ export const onCreate =
       url: API_URL.DOCTOR.DEFAULT,
     })
       .then(() => {
-        dispatch(getData());
+        dispatch(onRefetch());
         dispatch(onSelectRow(null));
         handleSuccess && handleSuccess();
       })
@@ -66,7 +79,7 @@ export const onUpdate =
       url: API_URL.DOCTOR.DEFAULT,
     })
       .then(() => {
-        dispatch(getData());
+        dispatch(onRefetch());
         dispatch(onSelectRow(null));
         handleSuccess && handleSuccess();
       })

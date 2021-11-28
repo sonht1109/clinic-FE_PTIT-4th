@@ -6,21 +6,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { theads } from './data';
 import {
   getData,
-  handleChangePage,
-  handleChangePageSize,
+  onPaginate,
   onSelectRow,
 } from './store/actions';
 import { selectDoctorStore } from './store/selecters';
 import { TDoctor } from './store/types';
 
 export default function DataTable() {
-  const { data, pageNumber, pageSize, total } = useSelector(selectDoctorStore);
+  const {
+    data,
+    search: { name },
+    paginate: { page, size },
+    total,
+    shouldRefetch
+  } = useSelector(selectDoctorStore);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData());
-  }, [dispatch]);
+    dispatch(getData({ page, size, name }));
+  }, [dispatch, page, size, name, shouldRefetch]);
 
   return (
     <Table header={theads} minWidth="1200px">
@@ -31,13 +36,13 @@ export default function DataTable() {
             <td colSpan={100}>
               <Pagination
                 handleChangePageSize={(size: number) => {
-                  dispatch(handleChangePageSize(size));
+                  dispatch(onPaginate({page, size}));
                 }}
-                current={pageNumber}
+                current={page}
                 total={total}
-                pageSize={pageSize}
+                pageSize={size}
                 onChange={(page: number) => {
-                  dispatch(handleChangePage(page));
+                  dispatch(onPaginate({size, page: page - 1}));
                 }}
               />
             </td>
@@ -59,7 +64,7 @@ const TableRow = ({ d, i }: { d: TDoctor; i: number }) => {
   return (
     <tr onClick={() => dispatch(onSelectRow(d))}>
       <td>
-        <Checkbox checked={selectedRow?.id === d?.id}/>
+        <Checkbox checked={selectedRow?.id === d?.id} />
       </td>
       <td>{d?.name}</td>
       <td>{d?.level}</td>
